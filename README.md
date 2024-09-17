@@ -41,10 +41,10 @@ Follow this [link](https://nice-stone-088038b03.5.azurestaticapps.net/) to see t
 
 ```mermaid
 graph TD
-    A[User's Browser] -->|Interacts with| B[Frontend (Map Interface)]
-    B -->|Fetches Data From| C[Azure Static Web App]
-    C --> D[Crime Data (CSV)]
-    C --> E[Police Data (API or Static Source)]
-    D --> F[Markers, Heatmap, Proximity Analysis]
-    E --> G[Displayed on Map]
+    A["User's Browser"] -->|"Interacts with"| B["Frontend (Map Interface)"]
+    B -->|"Fetches Data From"| C["Azure Static Web App"]
+    C --> D["Crime Data (CSV)"]
+    C --> E["Police Data (API or Static Source)"]
+    D --> F["Markers, Heatmap, Proximity Analysis"]
+    E --> G["Displayed on Map"]
 ```
