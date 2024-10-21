@@ -4,9 +4,9 @@
 
 This project is an interactive web application that allows users to visualize stop and search data in London, as well as police station proximity using a map interface. The data includes crime data and police station locations, displayed in different formats like markers, heatmaps, and proximity analysis circles.
 
-The application is hosted on Azure Static Web Apps and interacts with both CSV data sources and external APIs for data retrieval. 
+The application is hosted on Github and interacts with both CSV data sources and external APIs for data retrieval. 
 
-Follow this [link](https://nice-stone-088038b03.5.azurestaticapps.net/) to see the project. 
+Follow this [link](https://linayorda.github.io/uk-police-stop-check/) to see the project. 
 
 ![Screenshoot](screenshoot.png)
 
@@ -42,7 +42,7 @@ Follow this [link](https://nice-stone-088038b03.5.azurestaticapps.net/) to see t
 ```mermaid
 graph TD
     A["User's Browser"] -->|"Interacts with"| B["Frontend (Map Interface)"]
-    B -->|"Fetches Data From"| C["Azure Static Web App"]
+    B -->|"Fetches Data From"| C["Github Pages"]
     C --> D["Crime Data (CSV)"]
     C --> E["Police Data (API or Static Source)"]
     D --> F["Markers, Heatmap, Proximity Analysis"]
