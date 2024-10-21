@@ -1,10 +1,10 @@
 const monthUrls = {
-    "2024-06": "/data/data_2024-06.csv",
-    "2024-05": "/data/data_2024-05.csv",
-    "2024-04": "/data/data_2024-04.csv",
-    "2024-03": "/data/data_2024-03.csv",
-    "2024-02": "/data/data_2024-02.csv",
-    "2024-01": "/data/data_2024-01.csv"
+    "2024-06": "data/data_2024-06.csv",
+    "2024-05": "data/data_2024-05.csv",
+    "2024-04": "data/data_2024-04.csv",
+    "2024-03": "data/data_2024-03.csv",
+    "2024-02": "data/data_2024-02.csv",
+    "2024-01": "data/data_2024-01.csv"
 };
 
 // Define the custom police station icon
@@ -81,30 +81,43 @@ function sortDataChronologically(data) {
 // Function to fetch and display crime data
 function fetchCrimeData(month, callback) {
     clearContent();  
-    const blobUrl = monthUrls[month];
+    const csvUrl = monthUrls[month];
 
-    // Log the URL being fetched
-    console.log('Fetching data from:', blobUrl);
+    if (!csvUrl) {
+        console.error('No CSV URL available for the selected month:', month);
+        return;
+    }
 
-    fetch(blobUrl)
-        .then(response => response.text())
+    // Fetch the CSV file from the URL
+    fetch(csvUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        })
         .then(csvData => {
-            const data = Papa.parse(csvData, { header: true }).data;
-            
-            // Log the fetched data for debugging
-            console.log("Fetched and Parsed Data:", data);
+            // Parse the CSV data using PapaParse
+            const parsedData = Papa.parse(csvData, { header: true }).data;
 
-            const sortedData = sortDataChronologically(data);
-
-            if (sortedData.length === 0) {
+            if (!parsedData || parsedData.length === 0) {
+                console.warn('No data available or data is empty');
                 alert('No data available for the selected month.');
                 return;
             }
 
-            callback(sortedData);  // Send the sorted data to the callback function
+            console.log('Fetched and parsed data:', parsedData);
+
+            // Sort data by date for consistency
+            const sortedData = sortDataChronologically(parsedData);
+
+            callback(sortedData);  // Pass the sorted data to the callback function
         })
-        .catch(error => console.error('Error fetching data:', error));
+        .catch(error => {
+            console.error('Error fetching CSV data:', error);
+        });
 }
+
 
     
 // Function to place markers on the map for the crime data
