@@ -1,4 +1,6 @@
 const monthUrls = {
+    "2024-06": "data/data_2024-08.csv",
+    "2024-06": "data/data_2024-07.csv",
     "2024-06": "data/data_2024-06.csv",
     "2024-05": "data/data_2024-05.csv",
     "2024-04": "data/data_2024-04.csv",
