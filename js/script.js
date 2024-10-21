@@ -165,23 +165,15 @@ function loadGISAnalysis() {
 }
 
 
-
-
-
-// Dummy function for proximity analysis (replace with your actual implementation)
-// Function to show proximity of police stations with circle radii instead of lines
-// Function to show proximity of police stations with circle radii instead of lines
 function performProximityAnalysis(crimeData, policeStations, map) {
     console.log('Crime Data:', crimeData);  // Log crime data
     console.log('Police Stations:', policeStations);  // Log police data
 
-    // Validate that both crimeData and policeStations are valid arrays
     if (!Array.isArray(crimeData) || !Array.isArray(policeStations)) {
         console.error('Invalid crime or police data');
         return;
     }
 
-    // Plot police stations and draw circles around them to represent their proximity area
     policeStations.forEach(station => {
         const stationLat = station.lat;
         const stationLon = station.lon;
@@ -204,7 +196,6 @@ function performProximityAnalysis(crimeData, policeStations, map) {
         }
     });
 
-    // Optionally plot crime data (without lines)
     markersLayer = L.layerGroup().addTo(map);
     crimeData.forEach(crime => {
         const lat = parseFloat(crime.latitude);
