@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crime Data London</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <header>
+        <h1>Stop and Check at Latitude -51.509865, Longitude -0.118092</h1>
+        <nav class="date-controls">
+            <label for="month-select">Select Month:</label>
+            <select id="month-select">
+                <option value="2024-01">January 2024</option>
+                <option value="2024-02">February 2024</option>
+                <option value="2024-03">March 2024</option>
+                <option value="2024-04">April 2024</option>
+                <option value="2024-05">May 2024</option>
+                <option value="2024-06">June 2024</option>
+            </select>
+        
+            <button id="apply-month">Apply Month Filter</button>
+        </nav>
+
+        <nav class="menu">
+            <ul>
+                <li><a href="#" onclick="loadClusteredMap()">Clustered Map</a></li>
+                <li><a href="#" onclick="loadHeatmap()">Heatmap</a></li>
+                <li><a href="#" onclick="loadGISAnalysis()">Proximity Analysis</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="map" style="height: 600px;"></div>
+    </main>
+
+    <footer>
+        <p>Crime data from <a href="https://data.police.uk/">data.police.uk</a> and visualized using Leaflet</p>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
+    <script src="/js/script.js"></script>
+
+</body>
+</html>
+
+
